@@ -6,7 +6,8 @@ export const SearchPokemon = ({ busqueda, handleChange }) => {
         <div>
             <input
                 type="search"
-                placeholder='Buscar'
+                placeholder='Buscar...'
+                data-testid="search-input"
                 className='search'
                 value={busqueda}
                 onChange={handleChange}

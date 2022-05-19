@@ -15,7 +15,7 @@ function App() {
   const [modal, setOpenModal] = useState(false);
   const [modalDelete, setOpenModalDelete] = useState(false);
   const [idPokemon, setIdPokemon] = useState(null);
-  const [idPokemonDelete, setIdPokemonDelete ] = useState(null);
+  const [idPokemonDelete, setIdPokemonDelete] = useState(null);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [ataque, setAtaque] = useState(0);
@@ -80,10 +80,6 @@ function App() {
 
   const cargarPokemonPorId = async (id) => {
     const resultado = await getPokemonById(id);
-    if (resultado.idPokemon !== null) { 
-      setIdPokemon(resultado.id) 
-      setIdPokemonDelete(resultado.id)
-    };
     if (resultado.name !== "") { setName(resultado.name) };
     if (resultado.image !== "") { setImage(resultado.image) };
     if (resultado.attack !== "") { setAtaque(resultado.attack) };
@@ -136,7 +132,7 @@ function App() {
 
   const toggleDelete = (id) => {
     cargarPokemonPorId(id);
-    console.log({idDelete: idPokemon});
+    console.log({ idDelete: idPokemon });
     setIdPokemonDelete(id);
     setIdPokemon(null);
     setOpenModalDelete(!modalDelete);
@@ -166,6 +162,7 @@ function App() {
       </div>
       <TablePokemons
         pokemons={pokemons}
+        setPokemons={setPokemons}
         messageNoPokemons={messageNoPokemons}
         //deletePokemonById={deletePokemonById}
         toggleDelete={toggleDelete}
@@ -188,7 +185,7 @@ function App() {
           updatePokemonById={updatePokemonById}
         />
       }
-      {modalDelete && 
+      {modalDelete &&
         <ModalDeletePokemon
           name={name}
           message={message}

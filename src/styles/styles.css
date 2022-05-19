@@ -213,3 +213,11 @@ img:hover{
 .idConditionalTd > p {
     color: #888;
 }
+
+.orderRevert {
+    float: right;
+}
+
+.orderRevert:hover{
+    color: #888;
+}

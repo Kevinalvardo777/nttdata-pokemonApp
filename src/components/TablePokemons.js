@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faTrash, faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import './../styles/styles.css'
 
-export const TablePokemons = ({ pokemons, togglEdit, toggleDelete, messageNoPokemons }) => {
+export const TablePokemons = ({ pokemons, togglEdit, toggleDelete, messageNoPokemons, setPokemons }) => {
+    //console.log({pokemonesNormal: pokemons});
+    //console.log({pokemonesRevertidos: [...pokemons].reverse()});
+    const [toggleAngle, setToggleAngle] = useState(false);
+
+    const revertirOrder = () => {
+        //console.log("revirtiendo");
+        setToggleAngle(!toggleAngle);
+        setPokemons([...pokemons].reverse());
+    }
+
     return (
         <table className="styled-table">
             <thead>
                 <tr>
-                    <th scope="col">Nombre</th>
+                    <th scope="col">
+                        Nombre
+                        {toggleAngle ? <FontAwesomeIcon icon={faAngleUp} size="xs"
+                            onClick={() => revertirOrder()} className="orderRevert" />
+                            : <FontAwesomeIcon icon={faAngleDown} size="xs"
+                                onClick={() => revertirOrder()} className="orderRevert" />
+                        }
+
+                    </th>
                     <th scope="col">Imagen</th>
                     <th scope="col">Ataque</th>
                     <th scope="col">Defensa</th>
