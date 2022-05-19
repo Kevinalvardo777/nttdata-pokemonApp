@@ -99,6 +99,32 @@
     margin-top: 10px;
 }
 
+.colBig {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.labelStyle{
+    float: left;
+    width: 25%;
+}
+
+.inputStyle{
+    float: left;
+    width: 60%;
+}
+
+.labelStyleBig{
+    float: left;
+    width: 12.5%;
+}
+
+.inputStyleBig{
+    float: left;
+    width: 35%;
+}
+
 p{
     text-align: center;
 }

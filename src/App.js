@@ -167,19 +167,19 @@ function App() {
       <TablePokemons
         pokemons={pokemons}
         messageNoPokemons={messageNoPokemons}
-        deletePokemonById={deletePokemonById}
+        //deletePokemonById={deletePokemonById}
         toggleDelete={toggleDelete}
         togglEdit={togglEdit}
       />
       {modal &&
         <ModalPokemon
-          toggle={toggle}
+          idPokemon={idPokemon}
           name={name}
           image={image}
           ataque={ataque}
           defensa={defensa}
           message={message}
-          idPokemon={idPokemon}
+          toggle={toggle}
           setName={setName}
           setAtaque={setAtaque}
           setImage={setImage}
