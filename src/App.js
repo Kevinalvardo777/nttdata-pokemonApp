@@ -21,6 +21,7 @@ function App() {
   const [ataque, setAtaque] = useState(0);
   const [defensa, setDefensa] = useState(0);
   const [message, setMessage] = useState("");
+  const [messageNoPokemons, setMessageNoPokemons] = useState("");
   const [busqueda, setBusqueda] = useState("");
 
   const handleChange = (e) => {
@@ -39,6 +40,7 @@ function App() {
       ) {
         return elemento;
       }
+      setMessageNoPokemons("No se encontraron pokemones")
       return "";
     })
     setPokemons(resultadoBusqueda);
@@ -164,6 +166,7 @@ function App() {
       </div>
       <TablePokemons
         pokemons={pokemons}
+        messageNoPokemons={messageNoPokemons}
         deletePokemonById={deletePokemonById}
         toggleDelete={toggleDelete}
         togglEdit={togglEdit}

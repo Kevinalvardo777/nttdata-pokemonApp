@@ -3,10 +3,11 @@ export const getPokemons = async () => {
     var resultado;
     try {
         let res = await fetch("https://pokemon-pichincha.herokuapp.com/pokemons/?idAuthor=1", {
-            method: "GET"
+            method: "GET", 
+            headers: {"content-type": "application/json"}
         })
         let resJson = await res.json();
-        console.log({ obtenerDatos: resJson });
+        //console.log({ obtenerDatos: resJson });
         if (res.status === 200) {
             console.log("Pokemons obtenidos")
         } else {
@@ -25,7 +26,8 @@ export const getPokemonById = async (id) => {
     var resultado;
     try {
         let res = await fetch(`https://pokemon-pichincha.herokuapp.com/pokemons/${id}`, {
-            method: "GET"
+            method: "GET", 
+            headers: {"content-type": "application/json"}
         })
         let resJson = await res.json();
         resultado = resJson;
@@ -45,11 +47,12 @@ export const deleteByIdPokemon = async (id) => {
     var resultado;
     try {
         let res = await fetch(`https://pokemon-pichincha.herokuapp.com/pokemons/${id}`, {
-            method: "DELETE"
+            method: "DELETE", 
+            headers: {"content-type": "application/json"}
         })
         let resJson = await res.json();
         resultado = resJson;
-        console.log({ pokemonBorrado: resJson });
+        //console.log({ pokemonBorrado: resJson });
         if (res.status === 200) {
             console.log("Pokemons elininado")
         } else {
@@ -68,6 +71,7 @@ export const createPokemon = async ({ objPokemon, setMessage, cargarDatos, limpi
     try {
         let res = await fetch("https://pokemon-pichincha.herokuapp.com/pokemons/?idAuthor=1", {
             method: "POST",
+            headers: {"content-type": "application/json"},
             body: JSON.stringify(objPokemon)
         });
         //console.log(ataque)
@@ -99,10 +103,11 @@ export const updateByIdPokemon = async ({ idPokemon, objPokemon, setMessage, car
     try {
         let res = await fetch(`https://pokemon-pichincha.herokuapp.com/pokemons/${idPokemon}`, {
             method: "PUT",
+            headers: {"content-type": "application/json"},
             body: JSON.stringify(objPokemon)
         });
-        let resJson = await res.json();
-        console.log({ actualizadoPokemon: resJson });
+        await res.json();
+        //console.log({ actualizadoPokemon: resJson });
         if (res.status === 200) {
             setMessage("Pokemon actualizado correctamente")
             cargarDatos();

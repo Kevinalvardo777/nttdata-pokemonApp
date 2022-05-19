@@ -8,10 +8,10 @@ export const ModalDeletePokemon = ({ name, message, toggleClose, deletePokemonBy
         <>
             <div id="myModal" className="modal">
                 <div className="modal-content">
-                    <span className="close" onClick={toggleClose}>&times;</span>
+                    <span className="close" data-testid="closeModal" onClick={toggleClose}>&times;</span>
                     <p ><b>Eliminar Pokemon</b></p>
                     <div className="row">
-                        <p>Está seguro que desea eliminar el pokemon<b>{` ${name}`}</b>?</p>
+                        <p data-testid="titleDelete">Está seguro que desea eliminar el pokemon<b>{` ${name}`}</b>?</p>
                         <div className="containerButton">
                             <button
                                 type="submit"

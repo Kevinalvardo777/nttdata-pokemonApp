@@ -178,3 +178,12 @@ img:hover{
     height: 37px;
     overflow: hidden;
 }
+
+.idConditionalTd{
+    border: none;
+    border-color: white;
+}
+
+.idConditionalTd > p {
+    color: #888;
+}

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import './../styles/styles.css'
 
-export const TablePokemons = ({ pokemons, deletePokemonById, togglEdit, toggleDelete }) => {
+export const TablePokemons = ({ pokemons, togglEdit, toggleDelete, messageNoPokemons }) => {
     return (
         <table className="styled-table">
             <thead>
@@ -16,9 +16,9 @@ export const TablePokemons = ({ pokemons, deletePokemonById, togglEdit, toggleDe
                 </tr>
             </thead>
             <tbody>
-                {pokemons && pokemons.map((pokemon, i) => (
-                    <tr key={i}>
-                        <td>{pokemon.name}</td>
+                {pokemons && pokemons.length > 0 ? (pokemons.map((pokemon, i) => (
+                    <tr key={i} data-testid="idPokemon">
+                        <td data-testid="pokemonName">{pokemon.name}</td>
                         <td>
                             {pokemon.image.includes("https") ?
                                 <img
@@ -56,7 +56,17 @@ export const TablePokemons = ({ pokemons, deletePokemonById, togglEdit, toggleDe
                             </table>
                         </td>
                     </tr>
-                ))}
+                ))) :
+                    (
+                        <tr >
+                            <td className='idConditionalTd'></td>
+                            <td className='idConditionalTd'></td>
+                            <td className='idConditionalTd'><p data-testid="pokemonsMessage">{messageNoPokemons}</p></td>
+                        </tr>
+                    )
+
+                }
+
             </tbody>
         </table>
     )

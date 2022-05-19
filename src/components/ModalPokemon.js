@@ -10,12 +10,14 @@ name, image, ataque, defensa, idPokemon}) => {
             <div id="myModal" className="modal">
                 <div className="modal-content">
                     <span className="close" onClick={toggle}>&times;</span>
-                    <p ><b>{`${idPokemon === null ? "Nuevo Pokemon": "Editar Pokemon"}`}</b></p>
+                    <p ><b>{`${idPokemon === null ? "Nuevo Pokemon": `Editar Pokemon ${name}`}`}</b></p>
                     <div className="row">
                         <div className="col">
                             <label htmlFor="">Nombre: </label>
                             <input
                                 type="text"
+                                id="name"
+                                data-testid="name"
                                 value={name}
                                 placeholder="Name"
                                 onChange={(e) => setName(e.target.value)}
@@ -37,6 +39,7 @@ name, image, ataque, defensa, idPokemon}) => {
                             <input
                                 type="text"
                                 placeholder='url'
+                                data-testid="image"
                                 value={image}
                                 onChange={(e) => setImage(e.target.value)}
                             />
@@ -59,6 +62,7 @@ name, image, ataque, defensa, idPokemon}) => {
                                 onClick={idPokemon === null ? handleSubmit : updatePokemonById}
                                 disabled={name === "" || image === ""}
                                 id="buttonSave"
+                                data-testid="buttonSave"
                                 className={`${name !== "" && image !== "" ? "buttonForm" : "buttonInactive"}`}
 
                             ><FontAwesomeIcon
