@@ -3,69 +3,45 @@ import { render, screen, within, fireEvent } from '@testing-library/react'
 import { TablePokemons } from './TablePokemons'
 
 describe('Probando componente TablePokemon', () => {
-    
+
     test("renderizando pokemons", () => {
         const fakePokemons = [
             {
-                "id": 7395,
+                "id": 7486,
+                "name": "lolinrrr",
+                "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f3.png",
+                "type": "normal",
+                "hp": 56,
+                "attack": 40,
+                "defense": 34,
+                "idAuthor": 1,
+                "created_at": "2022-05-22T20:04:56.939Z",
+                "updated_at": "2022-05-26T18:27:20.279Z"
+              },
+              {
+                "id": 7505,
+                "name": "Snorlax",
+                "image": "https://i.pinimg.com/originals/85/1e/cf/851ecf1b1c06cb071c37fb3c6de2ea4a.jpg",
+                "type": "normal",
+                "hp": 100,
+                "attack": 48,
+                "defense": 84,
+                "idAuthor": 1,
+                "created_at": "2022-05-25T21:25:55.717Z",
+                "updated_at": "2022-05-25T21:35:34.508Z"
+              },
+              {
+                "id": 7506,
                 "name": "Lucario",
-                "image": "https://sg.portal-pokemon.com/play/resources/pokedex/img/pm/1e83fbcb00ab179cc89db5c53baea3e72d5942ad.png",
-                "type": "fire",
-                "hp": 100,
-                "attack": 55,
-                "defense": 25,
-                "idAuthor": 1,
-                "created_at": "2022-05-18T16:17:24.264Z",
-                "updated_at": "2022-05-18T23:17:09.502Z"
-            },
-            {
-                "id": 7403,
-                "name": "Pikachuu",
-                "image": "https://vignette.wikia.nocookie.net/doblaje/images/e/ea/Pikachu_DP.png/revision/latest?cb=20161002183304&path-prefix=es",
+                "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/448.png",
                 "type": "normal",
-                "hp": 61,
-                "attack": 1,
-                "defense": 30,
+                "hp": 45,
+                "attack": 11,
+                "defense": 40,
                 "idAuthor": 1,
-                "created_at": "2022-05-18T22:55:05.978Z",
-                "updated_at": "2022-05-19T04:51:37.075Z"
-            },
-            {
-                "id": 7414,
-                "name": "pulmana",
-                "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png",
-                "type": "normal",
-                "hp": 5,
-                "attack": 67,
-                "defense": 35,
-                "idAuthor": 1,
-                "created_at": "2022-05-19T04:00:45.287Z",
-                "updated_at": "2022-05-19T05:11:53.644Z"
-            },
-            {
-                "id": 7415,
-                "name": "Holi",
-                "image": "JAJAJA",
-                "type": "normal",
-                "hp": 10,
-                "attack": 32,
-                "defense": 50,
-                "idAuthor": 1,
-                "created_at": "2022-05-19T04:35:53.478Z",
-                "updated_at": "2022-05-19T04:49:33.064Z"
-            },
-            {
-                "id": 7417,
-                "name": "Kevin Fernando",
-                "image": "https://assets.pokemon.com/assets//cms2-es-es/img/watch-pokemon-tv/_tiles/broadcaster/season23-boing-169.png",
-                "type": "normal",
-                "hp": 100,
-                "attack": 100,
-                "defense": 100,
-                "idAuthor": 1,
-                "created_at": "2022-05-19T04:53:30.738Z",
-                "updated_at": "2022-05-19T04:53:30.738Z"
-            }
+                "created_at": "2022-05-26T18:30:00.678Z",
+                "updated_at": "2022-05-26T18:30:39.365Z"
+              }
         ]
 
         const { getAllByTestId } = render(<TablePokemons pokemons={fakePokemons} />)
@@ -80,5 +56,5 @@ describe('Probando componente TablePokemon', () => {
         const mensaje = screen.getByTestId('pokemonsMessage').innerHTML
         expect(mensaje).toEqual("No se encontraron pokemones");
     })
-    
+
 })

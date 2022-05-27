@@ -65,7 +65,7 @@ export const deleteByIdPokemon = async (id) => {
     return resultado;
 }
 
-export const createPokemon = async ({ objPokemon, setMessage, cargarDatos, limpiarCampos, setOpenModal, modal }) => {
+export const createPokemon = async ({ objPokemon, setMessage, cargarDatos, limpiarCampos, setOpenModal , setErrors, modal }) => {
     //e.preventDefault();
     var resultado;
     try {
@@ -78,6 +78,7 @@ export const createPokemon = async ({ objPokemon, setMessage, cargarDatos, limpi
         let resJson = await res.json();
         console.log({ resultadoKev: resJson });
 
+        //console.log(resJson.data.errors)
         if (res.status === 200) {
             setMessage("Pokemon creado correctamente")
             cargarDatos();
@@ -88,10 +89,15 @@ export const createPokemon = async ({ objPokemon, setMessage, cargarDatos, limpi
 
         } else {
             setMessage("Ha ocurrido un error")
+            if(resJson.statusCode === 400){
+                console.log(resJson.data.errors )
+                setErrors(resJson.data.errors)
+            }
         }
         resultado = res;
     } catch (error) {
         console.log(error);
+        //console.log({kevinnn: error.data})
         resultado = error;
     }
 

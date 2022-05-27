@@ -19,13 +19,13 @@ describe("Componente App", () => {
         */
         //console.log(resultado);
         //console.log(resultado[0].name);
-        expect(resultado[0].name).toEqual("Lucario")
+        expect(resultado[0].name).toEqual("lolinrrr")
     })
     
     test("Api get testing by id", async() => {
-        const resultado = await getPokemonById(7414);
+        const resultado = await getPokemonById(7486);
         //console.log(resultado.name);
-        expect(resultado.name).toEqual("pulmana")
+        expect(resultado.name).toEqual("lolinrrr")
         //expect("pikachu").toEqual("pikachu")
     })
 })

@@ -4,10 +4,18 @@ import { faSave, faCancel } from '@fortawesome/free-solid-svg-icons'
 import './../styles/styles.css'
 
 export const ModalPokemon = (
-    {idPokemon, name, image, ataque, defensa,
-    toggle, setName, setAtaque, setImage,                
+    {idPokemon, name, image, ataque, defensa, hp,
+    toggle, setName, setAtaque, setImage,          
     setDefensa, message, handleSubmit, updatePokemonById
 }) => {
+    /*const preventeNegativePaste = (e) =>{
+        const clipboardData = e.clipboardData || window.clipboardData;
+        const pasteData = parseFloat(clipboardData.getData("text"));
+
+        if (pasteData < 1) {
+            e.preventDefault();
+        }
+    }*/
     return (
         <>
             <div id="myModal" className="modal">
@@ -80,10 +88,10 @@ export const ModalPokemon = (
                             <button
                                 type="submit"
                                 onClick={idPokemon === null ? handleSubmit : updatePokemonById}
-                                disabled={name === "" || image === ""}
+                                disabled={name === "" || image === "" || hp === ""}
                                 id="buttonSave"
                                 data-testid="buttonSave"
-                                className={`${name !== "" && image !== "" ? "buttonForm" : "buttonInactive"}`}
+                                className={`${name !== "" && image !== "" && hp !== ""  ? "buttonForm" : "buttonInactive"}`}
 
                             ><FontAwesomeIcon
                                     icon={faSave}

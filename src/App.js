@@ -7,6 +7,7 @@ import { TablePokemons } from './components/TablePokemons';
 import { ModalPokemon } from './components/ModalPokemon';
 import { SearchPokemon } from './components/SearchPokemon';
 import { ModalDeletePokemon } from './components/ModalDeletePokemon';
+import { Paginacion } from './components/Paginacion';
 
 function App() {
 
@@ -23,6 +24,10 @@ function App() {
   const [message, setMessage] = useState("");
   const [messageNoPokemons, setMessageNoPokemons] = useState("");
   const [busqueda, setBusqueda] = useState("");
+  const [pagina, setPagina] = useState(1);
+  const [porPagina, setPorPagina] = useState(5);
+
+  const maximo = Math.ceil(pokemons.length / porPagina);
 
   const handleChange = (e) => {
     //console.log(e.target.value);
@@ -59,6 +64,7 @@ function App() {
     const resultado = await getPokemons();
     setPokemons(resultado);
     setTablaPokemons(resultado);
+    setPorPagina(5);
   }
 
   const handleSubmit = (e) => {
@@ -163,11 +169,14 @@ function App() {
       <TablePokemons
         pokemons={pokemons}
         setPokemons={setPokemons}
+        pagina={pagina}
+        porPagina={porPagina}
         messageNoPokemons={messageNoPokemons}
         //deletePokemonById={deletePokemonById}
         toggleDelete={toggleDelete}
         togglEdit={togglEdit}
       />
+      <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
       {modal &&
         <ModalPokemon
           idPokemon={idPokemon}

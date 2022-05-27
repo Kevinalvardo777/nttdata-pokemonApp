@@ -199,6 +199,12 @@ h3{
     color: rgb(103, 15, 219);
 }
 
+.errors{
+    text-align: center;
+    font-size: large;
+    color: rgb(214, 20, 20);
+}
+
 img:hover{
     width: 37px;
     height: 37px;
@@ -220,4 +226,33 @@ img:hover{
 
 .orderRevert:hover{
     color: #888;
+}
+
+/*pagination*/
+
+.containerPagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.buttonPage {
+    background-color: rgb(220, 215, 228); 
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.iconPag{
+    width: 13px;
+}
+
+button[disabled]{
+    background-color: #dfdada;
+    pointer-events: none;
 }

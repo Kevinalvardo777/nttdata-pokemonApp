@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash, faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import './../styles/styles.css'
 
-export const TablePokemons = ({ pokemons, togglEdit, toggleDelete, messageNoPokemons, setPokemons }) => {
+export const TablePokemons = ({ pokemons, togglEdit, toggleDelete, messageNoPokemons, setPokemons, pagina, porPagina }) => {
     //console.log({pokemonesNormal: pokemons});
     //console.log({pokemonesRevertidos: [...pokemons].reverse()});
     const [toggleAngle, setToggleAngle] = useState(false);
@@ -34,7 +34,9 @@ export const TablePokemons = ({ pokemons, togglEdit, toggleDelete, messageNoPoke
                 </tr>
             </thead>
             <tbody>
-                {pokemons && pokemons.length > 0 ? (pokemons.map((pokemon, i) => (
+                {pokemons && pokemons.length > 0 ? (pokemons
+                .slice((pagina - 1)* porPagina, (pagina - 1)* porPagina + porPagina)
+                .map((pokemon, i) => (
                     <tr key={i} data-testid="idPokemon">
                         <td data-testid="pokemonName">{pokemon.name}</td>
                         <td>
